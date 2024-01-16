@@ -22,7 +22,8 @@ export default function Blog({ posts }) {
             <div className={styles.cyllo_blog_div}>
             <div >
               <Link href={`/blog/${post.slug}`}>
-                <h2 >{post.title}</h2>
+                <h2 
+                >{post.title}</h2>
               </Link>
   
               <p dangerouslySetInnerHTML={{ __html: post.excerpt }} />
