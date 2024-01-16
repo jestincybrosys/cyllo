@@ -1,0 +1,9 @@
+.maindiv{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cyllo_home a{
+  color: black;
+
+}

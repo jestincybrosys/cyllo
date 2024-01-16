@@ -1,0 +1,42 @@
+.cyllo_story{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin-bottom: 40px;
+
+}
+.cyllo_story_inner {
+    width: calc(33.33% - 30px);
+    margin: 15px;
+    background-position: center;
+    background-size: cover;
+    height: 500px;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+.cyllo_story_content{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 3;
+}
+.cyllo_story_details{
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    padding: 15px 20px
+}
+.cyllo_story p ,.cyllo_story a{
+    color: #fff;
+}
