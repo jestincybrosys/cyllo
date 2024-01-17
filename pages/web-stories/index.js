@@ -21,14 +21,10 @@ function formatDate(dateString) {
 const WebStoriesPage = ({ webStories }) => {
   return (
     <div>
-             <nav>
-          <Link href="/">
-            Home
-          </Link>
-          <Link href="/blog">
-            blog
-          </Link>
-        </nav>
+      <nav>
+        <Link href="/">Home</Link>
+        <Link href="/blog">blog</Link>
+      </nav>
       <h1>Web Stories</h1>
       <div className={styles.cyllo_story}>
         {webStories.map(
