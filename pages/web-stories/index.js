@@ -37,6 +37,7 @@ const WebStoriesPage = ({ webStories }) => {
                 key={story.slug}
                 className={styles.cyllo_story_inner}
               >
+                {console.log(story.content)}
                 <div className={styles.cyllo_story_content}>
                   <div className={styles.cyllo_story_details}>
                     <Link href={`/web-stories/${story.slug}`}>
@@ -53,7 +54,7 @@ const WebStoriesPage = ({ webStories }) => {
   );
 };
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const itemsPerPage = 100; // Adjust this number based on your needs
   let webStories = [];
   let hasNextPage = true;
@@ -71,6 +72,7 @@ export async function getStaticProps() {
             title
             slug
             date
+            content
             featuredImage {
               node {
                 mediaItemUrl
@@ -100,7 +102,6 @@ export async function getStaticProps() {
     props: {
       webStories: webStories,
     },
-    revalidate: 60, // Refresh every 60 seconds
   };
 }
 

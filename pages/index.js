@@ -51,7 +51,7 @@ export async function getServerSideProps() {
     console.error("Error fetching data:", error);
     return {
       props: {
-        siteTitle: "Your Default Title", // Provide a default title
+        siteTitle: "Your Default Title",
       },
     };
   }

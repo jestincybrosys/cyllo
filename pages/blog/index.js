@@ -41,42 +41,41 @@ export default function Blog({ posts }) {
       </div>
     );
   }
-  
-
-export async function getStaticProps() {
-  const query = gql`
-    query {
-      posts {
-        nodes {
-          id
-          title
-          excerpt
-          slug
-          featuredImage {
-            node {
-              mediaItemUrl
+  export async function getServerSideProps() {
+    const query = gql`
+      query {
+        posts {
+          nodes {
+            id
+            title
+            excerpt
+            slug
+            featuredImage {
+              node {
+                mediaItemUrl
+              }
             }
           }
         }
       }
+    `;
+  
+    try {
+      const data = await request(WordPressGraphQLEndpoint, query);
+  
+      return {
+        props: {
+          posts: data.posts.nodes,
+          revalidate: 60,
+        },
+      };
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      return {
+        props: {
+          posts: [],
+        },
+      };
     }
-  `;
-
-  try {
-    const data = await request(WordPressGraphQLEndpoint, query);
-
-    return {
-      props: {
-        posts: data.posts.nodes,
-      },
-      revalidate: 60,
-    };
-  } catch (error) {
-    console.error("Error fetching data:", error);
-    return {
-      props: {
-        posts: [],
-      },
-    };
   }
-}
+  
